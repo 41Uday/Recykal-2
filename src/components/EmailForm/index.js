@@ -50,3 +50,50 @@ const EmailForm = () => {
 };
 
 export default EmailForm;
+
+// import React from "react";
+
+// function EmailForm() {
+//   return (
+//     <div className="overflow-x-auto">
+//       <table className="table-auto w-full">
+//         <thead>
+//           <tr className="bg-gray-200">
+//             <th className="px-4 py-2">Name</th>
+//             <th className="px-4 py-2">Email</th>
+//             <th className="px-4 py-2">Department</th>
+//             <th className="px-4 py-2">Date</th>
+//             <th className="px-4 py-2">Actions</th>
+//           </tr>
+//         </thead>
+//         <tbody className="text-center">
+//           <tr className="bg-white border-b">
+//             <td className="px-4 py-2">John Doe</td>
+//             <td className="px-4 py-2">johndoe@example.com</td>
+//             <td className="px-4 py-2">Sales</td>
+//             <td className="px-4 py-2">2023-04-19</td>
+//             <td className="px-4 py-2">
+//               <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+//                 Enable
+//               </button>
+//             </td>
+//           </tr>
+//           <tr className="bg-gray-100 border-b">
+//             <td className="px-4 py-2">Jane Smith</td>
+//             <td className="px-4 py-2">janesmith@example.com</td>
+//             <td className="px-4 py-2">Marketing</td>
+//             <td className="px-4 py-2">2023-04-18</td>
+//             <td className="px-4 py-2">
+//               <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+//                 Disable
+//               </button>
+//             </td>
+//           </tr>
+//           {/* Add more rows as needed */}
+//         </tbody>
+//       </table>
+//     </div>
+//   );
+// }
+
+// export default EmailForm;
