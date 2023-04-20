@@ -64,8 +64,8 @@ export default function Login() {
               alignItems: "center",
             }}
           >
-            <Typography component="h1" variant="h4" className="text-blue-600">
-              Login Here
+            <Typography component="h1" variant="h5">
+              Login
             </Typography>
             <Formik
               initialValues={initialValues}
@@ -120,7 +120,11 @@ export default function Login() {
                   </Button>
                   <Grid container justifyContent="flex-start">
                     <Grid item>
-                      <Link to="/signup" variant="body2">
+                      <Link
+                        to="/signup"
+                        variant="body2"
+                        className="text-black hover:text-blue-600"
+                      >
                         Don't have an account? Sign Up
                       </Link>
                     </Grid>

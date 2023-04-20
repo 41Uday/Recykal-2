@@ -6,6 +6,8 @@ import UserTab from "../UserTab";
 
 import TicketTab from "../TicketsTab";
 
+// import {RiUserSearchFill} from './rea'
+
 const Admin = () => {
   const [tab, setTab] = useState(1);
   const getTabsOfAdmin = () => {
@@ -34,14 +36,14 @@ const Admin = () => {
           >
             Dashboard
           </li>
-          <div class="border-b border-white-300 m-2 m-2 md:mx-8"></div>
+          <div className="border-b border-white-300 m-2 m-2 md:mx-8"></div>
           <li
             className="mb-4 p-3 text-zinc-700 hover:text-white mt-3 cursor-pointer"
             onClick={() => setTab(1)}
           >
             Users
           </li>
-          <div class="border-b border-white-300 m-2 md:mx-8"></div>
+          <div className="border-b border-white-300 m-2 md:mx-8"></div>
           <li
             className="mb-4 p-3 text-zinc-700 hover:text-white mt-3 cursor-pointer"
             onClick={() => setTab(2)}

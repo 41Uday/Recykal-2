@@ -1,7 +1,10 @@
+import Sample from "../SampleC/Sample";
+
 const Home = () => {
   return (
     <div>
       <h1>Home Page</h1>
+      <Sample />
     </div>
   );
 };

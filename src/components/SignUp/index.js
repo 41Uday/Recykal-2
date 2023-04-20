@@ -1,18 +1,18 @@
 import Button from "@mui/material/Button";
-
 import TextField from "@mui/material/TextField";
-
+// import { Autocomplete } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Link } from "react-router-dom";
-// import jwt from "jsonwebtoken";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-
+import InputLabel from "@mui/material/InputLabel";
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
 import * as Yup from "yup";
-
+import FormControl from "@mui/material/FormControl";
 import axios from "axios";
 
 import { toast, ToastContainer } from "react-toastify";
@@ -41,37 +41,13 @@ const validationSchema = Yup.object().shape({
       "password contains one (uppercase,lowercase,digit)"
     )
     .required("password must contains 8 characters"),
-  // department: Yup.object().required("Please select an option"),
 });
-
-// const options = [
-//   { label: "DRS", id: 1 },
-//   { label: "MarketPlace", id: 2 },
-//   { label: "Sustainability", id: 3 },
-// ];
 
 const theme = createTheme();
 
-// function createToken(payload) {
-//   const secretKey = "mySecretKey"; // Replace this with your own secret key
-//   const token = jwt.sign(payload, secretKey);
-//   return token;
-// }
-
 export default function SignUp() {
-  // const [age, setAge] = useState("");
-
-  // const handleChange = (event: SelectChangeEvent) => {
-  //   setAge(event.target.value);
-  // };
-
-  // const payload = { username: "john", isAdmin: true };
-  // const token = createToken(payload);
-  // console.log(token);
-
   const handleSubmit = (values, { resetForm }) => {
-    console.log("CHOCO11", values);
-    // console.log("Clicked");
+    console.log(values);
     axios
       .post("http://192.168.1.85:8095/api/signup", values)
       .then((res) => {
@@ -87,9 +63,10 @@ export default function SignUp() {
         });
         window.location.href = "/login";
       })
-      .catch((res) => {
-        toast.error(res.data, {
-          position: "top-right",
+      .catch((err) => {
+        console.log(err);
+        toast.error(err.response.data.message, {
+          position: "bottom-center",
           autoClose: 5000,
           hideProgressBar: false,
           closeOnClick: true,
@@ -185,6 +162,28 @@ export default function SignUp() {
                         <ErrorMessage name="password" />
                       </div>
                     </Grid>
+                    <Grid item xs={12}>
+                      <FormControl fullWidth autoFocus={false}>
+                        <InputLabel htmlFor="dropdown" autoFocus={false}>
+                          Department
+                        </InputLabel>
+                        <Field
+                          as={Select}
+                          name="dept"
+                          id="dropdown"
+                          label="Department"
+                          autoComplete="dropdown"
+                          autoFocus={false}
+                        >
+                          <MenuItem value="DRS">DRS</MenuItem>
+                          <MenuItem value="Sustainability">
+                            Sustainability
+                          </MenuItem>
+                          <MenuItem value="MarketPlace">MarketPlace</MenuItem>
+                        </Field>
+                        <ErrorMessage name="dept" component="div" />
+                      </FormControl>
+                    </Grid>
                   </Grid>
                   <Button
                     type="submit"
@@ -196,7 +195,11 @@ export default function SignUp() {
                   </Button>
                   <Grid container justifyContent="flex-start">
                     <Grid item>
-                      <Link to="/login" variant="body2">
+                      <Link
+                        to="/login"
+                        variant="body2"
+                        className="text-black hover:text-blue-600"
+                      >
                         Already have an account? Sign in
                       </Link>
                     </Grid>
